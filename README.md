@@ -24,3 +24,12 @@ Things you may want to cover:
 * ...
 
 Attempting to do this using Rails 6.0
+
+I changed the regex expression in the  devise.rb file to make it a more complete test of the 
+valid email.
+
+*psql commands
+  command to view db: psql -d odin_facebook_development -U james -W
+  then SELECT * FROM users;
+
+  when it shows (end) just tap "q"
