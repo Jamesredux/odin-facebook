@@ -33,3 +33,6 @@ valid email.
   then SELECT * FROM users;
 
   when it shows (end) just tap "q"
+
+   rails db:migrate:reset deletes database
+   
