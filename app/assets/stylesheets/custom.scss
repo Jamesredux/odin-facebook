@@ -159,4 +159,12 @@ input {
 	}
 }
 
-/* devise flash message is under class 'notice' */
+p.alert {
+	color: red;
+	ul {
+		color: red;
+		margin: 0 0 30px 0;
+	}
+}
+
+/* devise flash message is under class 'notice' or alert */
