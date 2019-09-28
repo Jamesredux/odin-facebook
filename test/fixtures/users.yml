@@ -9,3 +9,10 @@
 #
 #two: {}
 # column: value
+
+james:
+  name: James Example
+  email: james@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  created_at: <%= Time.zone.now %>
+# User.digest('password')

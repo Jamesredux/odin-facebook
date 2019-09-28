@@ -35,4 +35,9 @@ valid email.
   when it shows (end) just tap "q"
 
    rails db:migrate:reset deletes database
+
+
+    rake routes | grep sessions  searches routes just for session routes
+
+    should I put current user method in application helper or where
    

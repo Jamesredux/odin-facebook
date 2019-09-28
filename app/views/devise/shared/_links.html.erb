@@ -1,3 +1,6 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
 <%- if controller_name != 'sessions' %>
   <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end %>
@@ -23,3 +26,6 @@
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end %>
 <% end %>
+
+	</div>
+</div>
