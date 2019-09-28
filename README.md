@@ -38,4 +38,6 @@ valid email.
 
 
     rake routes | grep sessions  searches routes just for session routes
+
+    should I put current user method in application helper or where
    
