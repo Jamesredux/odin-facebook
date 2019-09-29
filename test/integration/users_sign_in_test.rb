@@ -17,7 +17,7 @@ class UsersSignInTest < ActionDispatch::IntegrationTest
     @user = users(:james)
   end
   
-  test "sign in with valid information" do 
+  test "sign in with valid information followed by sign out" do 
     get  new_user_session_path
     post user_session_path params: { user: { email: @user.email, 
                                       password: 'password' } }
@@ -26,7 +26,13 @@ class UsersSignInTest < ActionDispatch::IntegrationTest
     assert_template 'static_pages/home'
     assert_select "a[href=?]", new_user_session_path, count: 0  
     assert_select "a[href=?]", destroy_user_session_path
-    assert_select "a[href=?]", user_path(@user)                              
+    assert_select "a[href=?]", user_path(@user)
+    delete destroy_user_session_path
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_select "a[href=?]", new_user_session_path
+    assert_select "a[href=?]", destroy_user_session_path,      count: 0
+    assert_select "a[href=?]", user_path(@user), count: 0                              
 
   end  
 
@@ -36,6 +42,7 @@ class UsersSignInTest < ActionDispatch::IntegrationTest
     post user_session_path params: { user: { email: @user.email, 
                                             password: 'invalid' } }
     assert_template 'devise/sessions/new'
+    assert_select "a[href=?]", destroy_user_session_path,      count: 0
     assert_not flash.empty?
     get root_path
     assert flash.empty?                                        
