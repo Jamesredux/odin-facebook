@@ -16,3 +16,10 @@ james:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   created_at: <%= Time.zone.now %>
 # User.digest('password')
+
+dale:
+  name: Dale Cooper 
+  email: dale@fbi.gov
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  created_at: <%= Time.zone.now %>
+  

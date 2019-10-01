@@ -4,6 +4,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
    #uncommented these to add name attribute to user model and added it to methods below
    before_action :configure_sign_up_params, only: [:create]
    before_action :configure_account_update_params, only: [:update]
+   #not sure the below method is needed I think Devise has covered this.??
+   before_action :authenticate_user!, only: [:update, :edit]
 
   # GET /resource/sign_up
   # def new

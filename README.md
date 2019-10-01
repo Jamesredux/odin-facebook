@@ -41,3 +41,7 @@ valid email.
 
     should I put current user method in application helper or where
    
+
+   edit_user_password is for an admin to change a password????
+
+   make an option show show profile can be hidden users choice, maybe only friends can see?
