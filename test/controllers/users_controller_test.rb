@@ -22,7 +22,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   	name = "Kevin"
   	put user_registration_path params: { user: { name: name, email: @user.email, 
                                       password: '', password_confirmation: '',
-                                      current_password: "password" } }
+                                      current_password: "password"  } }
     assert_not flash.empty?    
     @user.reload
     assert_not_equal name, @user.name
@@ -34,4 +34,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_path
   end  
 
+  test "should not allow the admin attribute to be updated via the web" do
+    log_in_as(@other_user)
+    assert_not @other_user.admin?
+    put user_registration_path params: { user: { name: @other_user.name, email: @other_user.email, 
+                                      password: '', password_confirmation: '',
+                                      current_password: "password",
+                                      admin: true } }
+    assert_not @other_user.reload.admin?                                   
+  end  
 end

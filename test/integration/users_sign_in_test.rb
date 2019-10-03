@@ -20,8 +20,8 @@ class UsersSignInTest < ActionDispatch::IntegrationTest
   
   test "sign in with valid information followed by sign out" do 
     get  new_user_session_path
-    post user_session_path params: { user: { email: @user.email, 
-                                      password: 'password' } }
+    log_in_as(@user)
+
     assert_redirected_to root_path
     follow_redirect!
     assert_template 'static_pages/home'
@@ -43,8 +43,8 @@ class UsersSignInTest < ActionDispatch::IntegrationTest
   test "sign in with valid email/invalid password" do
     get new_user_session_path
     assert_template 'devise/sessions/new'
-    post user_session_path params: { user: { email: @user.email, 
-                                            password: 'invalid' } }
+    log_in_as(@user, password: 'invalid')
+
     assert_template 'devise/sessions/new'
     assert_select "a[href=?]", destroy_user_session_path,      count: 0
     assert_not flash.empty?

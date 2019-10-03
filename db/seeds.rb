@@ -10,7 +10,8 @@
 User.create!(name: "James Redux",
 							email: "jamesredux@gmail.com",
 							password: "foobar",
-							password_confirmation: "foobar" )
+							password_confirmation: "foobar",
+							admin: true )
 
 # Generate a bunch of additional users.
 99.times do |n|

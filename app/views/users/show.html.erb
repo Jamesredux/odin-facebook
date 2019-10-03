@@ -14,6 +14,7 @@
 </div>
 
 <div class="row">
-	<%= link_to "edit password", edit_user_password_path %>
+  <% if signed_in_user? %>
 	<%= link_to "edit user", edit_user_registration_path %>
+  <% end %>
 </div>

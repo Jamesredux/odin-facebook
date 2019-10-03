@@ -22,6 +22,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'bcrypt', '3.1.12'
 gem 'faker', '2.1.2'
+gem 'kaminari'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
