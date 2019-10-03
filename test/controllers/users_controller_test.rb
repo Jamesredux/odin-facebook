@@ -29,6 +29,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_path
   end 	
 
-
+  test "should redirect users index when not logged in" do
+    get users_path
+    assert_redirected_to new_user_session_path
+  end  
 
 end

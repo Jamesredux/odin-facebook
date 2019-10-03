@@ -1,11 +1,14 @@
 
 
 <%= provide(:title, "Users Index") %>
+<h1>All Users - Change to friends</h1>
 
-<div class="row">
 	<ul class="users">
 			<%  @users.each do |user| %>
-				<li><%= user.name %></li>
+
+				<li>
+					<%= gravatar_for user, size: 50 %>
+					<%= link_to user.name, user %>
+				</li>
 			<% end %>	  
 	</ul>
-</div
