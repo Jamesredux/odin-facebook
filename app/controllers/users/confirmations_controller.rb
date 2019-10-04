@@ -28,3 +28,9 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   #   super(resource_name, resource)
   # end
 end
+
+
+# user_registration PATCH  /users(.:format)       users/registrations#update
+#                   PUT    /users(.:format)       users/registrations#update
+#                   DELETE /users(.:format)       users/registrations#destroy
+#                   POST   /users(.:format)       users/registrations#create

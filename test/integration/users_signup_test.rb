@@ -27,7 +27,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
  		follow_redirect!
  		assert_template 'static_pages/home'
  		assert_not flash.empty?
- 		assert_select "a[href=?]", destroy_user_session_path
+ 		#won't test for this as user is not logged in until confirmed email
+ 		#assert_select "a[href=?]", destroy_user_session_path
  end	
 
 end

@@ -16,6 +16,7 @@ james:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   admin: true
   created_at: <%= Time.zone.now %>
+  confirmed_at: <%= Time.zone.now %>
   
 # User.digest('password')
 
@@ -24,18 +25,21 @@ dale:
   email: dale@fbi.gov
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   created_at: <%= Time.zone.now %>
+  confirmed_at: <%= Time.zone.now %>
 
 gordon:
   name: Gordon Cole 
   email: gordon@fbi.gov
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   created_at: <%= Time.zone.now %>
+  confirmed_at: <%= Time.zone.now %>
 
 phillip:
   name: Phillip Jeffries 
   email: phillip@fbi.gov
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-  created_at: <%= Time.zone.now %>    
+  created_at: <%= Time.zone.now %>   
+  confirmed_at: <%= Time.zone.now %> 
 
 <% 30.times do |n| %>
 user_<%= n %>:
@@ -43,6 +47,7 @@ user_<%= n %>:
   email: <%= "user-#{n}@example.com" %>
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   created_at: <%= Time.zone.now %>
+  confirmed_at: <%= Time.zone.now %>
 <% end %>
   
   
