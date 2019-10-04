@@ -14,7 +14,9 @@ james:
   name: James Example
   email: james@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  admin: true
   created_at: <%= Time.zone.now %>
+  
 # User.digest('password')
 
 dale:
