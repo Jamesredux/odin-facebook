@@ -61,7 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "odin_facebook_production"
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = '<salty-citadel-89541.herokuapp.com'
+  host = 'https://salty-citadel-89541.herokuapp.com'
   
   config.action_mailer.default_url_options = { host: host }
     ActionMailer::Base.smtp_settings = {
