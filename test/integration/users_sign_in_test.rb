@@ -9,7 +9,7 @@ class UsersSignInTest < ActionDispatch::IntegrationTest
   	post user_session_path params: { session: { name: "", email: "" } }
   	assert_template 'devise/sessions/new'
   	assert_not flash.empty?
-  	assert_select 'p.alert', "Invalid Email or password."
+  	assert_select 'div.alert', "Invalid Email or password."
   	get root_path
   	assert flash.empty?
   end	
