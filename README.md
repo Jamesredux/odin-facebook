@@ -28,6 +28,11 @@ Attempting to do this using Rails 6.0
 I changed the regex expression in the  devise.rb file to make it a more complete test of the 
 valid email.
 
+
+Added Devise set up
+must confirm email change
+send confirmation email when password changed
+added lockable to lock account after 10 unsucessful sign in attempts
 *psql commands
   command to view db: psql -d odin_facebook_development -U james -W
   then SELECT * FROM users;

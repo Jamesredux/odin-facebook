@@ -194,3 +194,10 @@ p.alert {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+
+/*  below extends default flash styling to devises inbuilt notices      */
+
+
+.alert-alert { @extend .alert-danger; }
+.alert-notice { @extend .alert-success; }
