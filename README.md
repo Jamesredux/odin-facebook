@@ -50,3 +50,8 @@ added lockable to lock account after 10 unsucessful sign in attempts
    edit_user_password is for an admin to change a password????
 
    make an option show show profile can be hidden users choice, maybe only friends can see?
+
+
+   create friendships with user.friendships.create or Friendship.create
+   can list friends with user.friend_ids
+   
