@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @friends = current_user.friends
     redirect_to root_url and return unless @user.confirmed?
   end
 

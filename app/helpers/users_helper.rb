@@ -24,4 +24,8 @@ module UsersHelper
   def current_user?(user)
     user == current_user
   end
+
+  def not_friends(user)
+    !current_user.friends.include?(user)
+  end  
 end

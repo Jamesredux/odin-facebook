@@ -13,10 +13,26 @@
   </aside>
 </div>
 
+
+    <% if signed_in_user? %>
+<div class="row">
+  <aside class="col-md-4">
+
+      <ul class="friends" >
+
+      <%= render @friends %>
+    </ul>
+
+  </aside>
+</div>
+<% end %>
+
 <div class="row">
   <% if signed_in_user? %>
 	<%= link_to "edit user", edit_user_registration_path %>
   <% end %>
+
+
 </div>
 
 <%= link_to "create friendship", friendships_path, method: :post %>
