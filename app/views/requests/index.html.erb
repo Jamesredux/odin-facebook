@@ -1,0 +1,62 @@
+
+
+<div class="row">
+  <div class="col-md-12">
+<h1> Friend Requests Received</h1>
+<ul>
+	<% @incoming.each do |request| %>
+	<li>
+		<% sender = User.find(request.user_id) %>
+		<%= link_to sender.name, sender %>
+		|
+		<%= form_for current_user.friendships.build do |f| %>
+				<%= f.hidden_field :friend, :value => sender.id %>
+			
+				<%= f.submit "Accept Friend Request", class: "btn btn-group btn-primary btn-sm" %>
+				<% end %>
+		|
+		<%= form_for request, method: :delete do |f| %>
+				<%= f.hidden_field :sender, :value => sender.id %>
+			
+				<%= f.submit "Decline Friend Request", class: "btn btn-group btn-primary btn-sm" %>
+				<% end %>		
+
+
+
+
+
+
+
+
+
+
+
+	</li>
+
+	<% end %>
+</ul>
+
+
+
+
+<h1>Pending Sent Requests</h1>
+
+<ul>
+	<% @outgoing.each do |request| %>
+	
+	<li>
+		<% pending_friend = User.find(request.pending_friend_id) %>
+	
+		<%= link_to pending_friend.name, pending_friend %>
+	| <%= form_for request, method: :delete do |f| %>
+				<%= f.submit "Cancel Request", class: "btn btn-group btn-primary btn-sm" %>
+				<% end %>		
+
+	</li>
+
+	<% end %>
+
+</ul>
+
+</div>
+</div>

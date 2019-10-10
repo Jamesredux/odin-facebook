@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def index
   	@users = User.order(:created_at).page(params[:page]).per(15)
+    #@request = Request.new
   end	
 
   def destroy

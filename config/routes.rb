@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :requests
   devise_for :users, controllers: { registrations: 'users/registrations' }
   get 'users/new'
   root 'static_pages#home'

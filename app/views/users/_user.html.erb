@@ -4,10 +4,15 @@
 		<%= gravatar_for user, size: 50 %>
 		<%= link_to user.name, user %>
 		<% if current_user.admin? && !current_user?(user) %>
-		| <%= link_to "delete", user, method: :delete,
+			| <%= link_to "delete", user, method: :delete,
 																data: { confirm: "Are you sure?" } %>
 		<% end %>														
-		<% if !current_user?(user) && not_friends(user) %>
-		|	<%= link_to "send friend request", '#' %> 														
+		<% if !current_user?(user) && not_friends(user) %>	
+				<%= form_for current_user.requests.build do |f| %>
+				<%= f.hidden_field :pending_friend, :value => user.id %>
+			
+				<%= f.submit "Send Friend Request", class: "btn btn-primary btn-sm" %>
+				<% end %>
+
 		<% end %>																
 </li>
