@@ -7,7 +7,9 @@ class FriendshipsController < ApplicationController
 
 
 	def destroy
-		
+		Friendship.find(params[:id]).destroy
+		flash[:success] = "User Unfriended"
+		redirect_to friendships_path	
 	end
 
   def create
@@ -27,7 +29,7 @@ class FriendshipsController < ApplicationController
 	private
 
 	def set_friend
-		@friend = current_user.friend.find(params[:id])
+		@friend = current_user.friends.find(params[:friendship][:friend])
 	end
 
 
