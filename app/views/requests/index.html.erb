@@ -9,7 +9,7 @@
 		<% sender = User.find(request.user_id) %>
 		<%= link_to sender.name, sender %>
 		|
-		<%= form_for current_user.friendships.build do |f| %>
+		<%= form_for request, method: :put do |f| %>
 				<%= f.hidden_field :friend, :value => sender.id %>
 			
 				<%= f.submit "Accept Friend Request", class: "btn btn-group btn-primary btn-sm" %>
@@ -21,21 +21,10 @@
 				<%= f.submit "Decline Friend Request", class: "btn btn-group btn-primary btn-sm" %>
 				<% end %>		
 
-
-
-
-
-
-
-
-
-
-
 	</li>
 
 	<% end %>
 </ul>
-
 
 
 

@@ -1,8 +1,10 @@
-class Friendship < ApplicationRecord
-	#put these in create and destroy methods
+  class Friendship < ApplicationRecord
 
 	after_create :create_inverse_relationship
   after_destroy :destroy_inverse_relationship
+
+  belongs_to :user
+  belongs_to :friend, class_name: 'User'
 
   validates_presence_of :user_id, :friend_id
   validate :user_is_not_equal_friend
@@ -10,8 +12,7 @@ class Friendship < ApplicationRecord
   validates_uniqueness_of :user_id, scope: [:friend_id] 
 
 
-  belongs_to :user
-  belongs_to :friend, class_name: 'User'
+
 
 
 
@@ -22,7 +23,6 @@ class Friendship < ApplicationRecord
   end
 
   def create_inverse_relationship
-  	#friend.friendships.create(friend: user)
   	Friendship.create(user: friend, friend: user)
   end
   	

@@ -1,9 +1,16 @@
 class FriendshipsController < ApplicationController
+	before_action :set_friend, only: :destroy
+
+	def index
+  	@friends = current_user.friends.page(params[:page]).per(15)
+	end
 
 
+	def destroy
+		
+	end
 
-
-	def create
+  def create
 		@friend = User.find(params[:friendship][:friend]) 
 		@friendship = Friendship.new(user: current_user, friend: @friend)
 		if @friendship.save
@@ -15,22 +22,13 @@ class FriendshipsController < ApplicationController
 			redirect_to root_url
 			@notice = @friendship.errors
 		end		
-		#User.friend_ids is a useful method
-		#check friendship exists
-		#create friendship
-		#destroy friend request object
-		#or error message if can't create friendship
+	end
+	
+	private
+
+	def set_friend
+		@friend = current_user.friend.find(params[:id])
 	end
 
-	def destroy
-		
-	end
 
-	def show
-		
-	end
-
-	def new
-		@friendship = Friendship.new
-	end
 end

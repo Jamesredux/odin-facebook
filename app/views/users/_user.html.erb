@@ -6,8 +6,16 @@
 		<% if current_user.admin? && !current_user?(user) %>
 			| <%= link_to "delete", user, method: :delete,
 																data: { confirm: "Are you sure?" } %>
-		<% end %>														
-		<% if !current_user?(user) && not_friends(user) %>	
+		<% end %>		
+
+		<% if current_user.friends.include?(user) %>
+
+			<%= "Friend - link to unfriend" %>
+
+		<% elsif !not_already_sent(user) %>
+			<%= "Friend request send - cancel?" %>	
+
+		<% elsif !current_user?(user) %>	
 				<%= form_for current_user.requests.build do |f| %>
 				<%= f.hidden_field :pending_friend, :value => user.id %>
 			

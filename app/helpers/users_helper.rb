@@ -28,4 +28,8 @@ module UsersHelper
   def not_friends(user)
     !current_user.friends.include?(user)
   end  
+
+  def not_already_sent(user)
+    !current_user.pending_friends.include?(user)
+  end
 end

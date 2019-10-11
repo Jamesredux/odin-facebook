@@ -14,18 +14,6 @@
 </div>
 
 
-    <% if signed_in_user? %>
-<div class="row">
-  <aside class="col-md-4">
-
-      <ul class="friends" >
-
-      <%= render @friends %>
-    </ul>
-
-  </aside>
-</div>
-<% end %>
 
 <div class="row">
   <% if signed_in_user? %>
@@ -35,4 +23,17 @@
 
 </div>
 
-<%= link_to "create friendship", friendships_path, method: :post %>
+<% if signed_in_user? %>
+  <%= link_to "Friends", friendships_path %>
+<% end %>  
+
+
+
+<% if !current_user?(@user) && not_friends(@user) && not_already_sent(@user) %>  
+        <%= form_for current_user.requests.build do |f| %>
+        <%= f.hidden_field :pending_friend, :value => @user.id %>
+      
+        <%= f.submit "Send Friend Request", class: "btn btn-primary btn-sm" %>
+        <% end %>
+
+<% end %>                               

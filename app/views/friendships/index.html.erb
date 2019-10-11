@@ -1,0 +1,13 @@
+
+<%= provide(:title, "Friend List") %>
+<h1>Friends</h1>
+
+	<ul class="friends">
+
+	
+		<%= render partial: 'friend', collection: @friends %>
+							  
+	</ul>
+
+	<%= paginate @friends %>
+
