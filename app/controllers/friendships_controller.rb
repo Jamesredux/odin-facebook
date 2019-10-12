@@ -13,6 +13,7 @@ class FriendshipsController < ApplicationController
 		redirect_to friendships_path	
 	end
 
+
   	def create
 			@friend = User.find(params[:friendship][:friend]) 
 			@friendship = Friendship.new(user: current_user, friend: @friend)
@@ -28,6 +29,7 @@ class FriendshipsController < ApplicationController
 		end
 	
 	private
+
 
 	def set_friend
 	 	@friend = current_user.friends.find(params[:friendship][:friend])

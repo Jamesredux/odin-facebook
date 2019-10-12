@@ -35,7 +35,7 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
   		end
   		assert_redirected_to users_path
   		follow_redirect!
-  		assert_select 'div.alert', "You are already friends"
+  		assert_select 'div.alert', "Unable to send request"
   	end	
 
   	test "can't create request when request outstanding between users" do 
@@ -48,7 +48,7 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
   		end
   		assert_redirected_to users_path
   		follow_redirect!
-  		assert_select 'div.alert', "There is an outstanding request for this user"
+  		assert_select 'div.alert', "Unable to send request"
   	end	
 
 
