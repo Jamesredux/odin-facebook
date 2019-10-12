@@ -1,5 +1,7 @@
 class RequestsController < ApplicationController
 		before_action :set_friend_request, except: [:index, :create]
+		before_action :authenticate_user!
+
 
 
 	def new
@@ -69,6 +71,8 @@ class RequestsController < ApplicationController
 	def set_friend_request
 		@friend_request = Request.find(params[:id])
 	end
+
+
 
 	def request_already_sent(pending_friend)
 		#need to add custom notice
