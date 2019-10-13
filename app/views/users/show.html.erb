@@ -17,15 +17,17 @@
 
 <div class="row">
   <% if signed_in_user? %>
-	<%= link_to "edit user", edit_user_registration_path %>
+    <ul>
+	     <li><%= link_to "edit user", edit_user_registration_path %></li>
+       <li><%= link_to "Friends", friendships_path %></li>
+       <li> <%= link_to "Friend Requests Sent", requests_sent_path %></li>
+    </ul>
+
   <% end %>
 
 
 </div>
 
-<% if signed_in_user? %>
-  <%= link_to "Friends", friendships_path %>
-<% end %>  
 
 
 

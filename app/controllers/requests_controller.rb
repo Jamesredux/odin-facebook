@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-		before_action :set_friend_request, except: [:index, :create]
+		before_action :set_friend_request, except: [:index, :sent, :create]
 		before_action :authenticate_user!
 
 
@@ -10,8 +10,12 @@ class RequestsController < ApplicationController
 
 	def index
 		@incoming = Request.where(pending_friend: current_user)
-		@outgoing = current_user.requests
 		
+		
+	end
+
+	def sent
+		@outgoing = current_user.requests
 	end
 
 	def create

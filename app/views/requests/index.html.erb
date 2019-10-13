@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-md-12">
 <h1> Friend Requests Received</h1>
+<%= @incoming_count %>
 <ul>
 	<% @incoming.each do |request| %>
 	<li>
@@ -26,26 +27,8 @@
 	<% end %>
 </ul>
 
-
-
-<h1>Pending Sent Requests</h1>
-
-<ul>
-	<% @outgoing.each do |request| %>
-	
-	<li>
-		<% pending_friend = User.find(request.pending_friend_id) %>
-	
-		<%= link_to pending_friend.name, pending_friend %>
-	| <%= form_for request, method: :delete do |f| %>
-				<%= f.submit "Cancel Request", class: "btn btn-group btn-primary btn-sm" %>
-				<% end %>		
-
-	</li>
-
-	<% end %>
-
-</ul>
-
+<div class="row">
+	 <%= link_to "Friend Requests Sent", requests_sent_path %>
 </div>
-</div>
+
+

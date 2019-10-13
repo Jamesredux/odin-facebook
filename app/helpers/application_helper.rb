@@ -11,5 +11,10 @@ module ApplicationHelper
 	end
 
 
+	private
 
+	def requests_outstanding?
+			true if Request.where(pending_friend: current_user).count > 0
+	end
+			
 end

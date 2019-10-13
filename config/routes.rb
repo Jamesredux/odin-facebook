@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :requests
+ 
   devise_for :users, controllers: { registrations: 'users/registrations' }
   get 'users/new'
   root 'static_pages#home'
@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
+  get 'requests/sent', to: 'requests#sent'
+  
   resources :users
   resources :friendships
+  resources :requests
   
 end
