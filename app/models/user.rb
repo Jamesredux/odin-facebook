@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :pending_friends, through: :requests #, source: :pending_friend
 
+  has_many :posts, dependent: :destroy
+
 
 	before_save { self.email = email.downcase }
 

@@ -74,4 +74,12 @@ class UserTest < ActiveSupport::TestCase
    	assert_equal  mixed_case_email.downcase, @user.reload.email
    end	
 
+   test "posts destroyed when user deleted" do
+      @user.save
+      @user.posts.create!(content: "test post")
+      assert_difference 'Post.count', -1 do 
+         @user.destroy 
+      end
+   end      
+
 end
