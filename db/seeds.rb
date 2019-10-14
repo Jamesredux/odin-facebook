@@ -25,3 +25,12 @@ User.create!(name: "James Redux",
 								password_confirmation: password,
 								confirmed_at: Time.zone.now)
 end														
+
+
+#posts
+
+users = User.order(:created_at).take(6)
+50.times do 
+	content = Faker::TvShows::TwinPeaks.quote
+	users.each { |user| user.posts.create!(content: content) }
+end	

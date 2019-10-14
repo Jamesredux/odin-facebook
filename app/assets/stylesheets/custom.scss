@@ -246,3 +246,50 @@ p.alert {
 
 .alert-alert { @extend .alert-danger; }
 .alert-notice { @extend .alert-success; }
+
+
+/*  posts */
+
+
+.timeline {
+	list-style: none;
+	padding: 0;
+	li {
+		padding: 10px 0;
+		border-top: 1px solid #e8e8e8;
+	}
+	.user {
+		margin-top: 5em;
+		padding-top: 0;
+		margin-left: 5px;
+	}
+	.content {
+		display: block;
+		margin-left: 5px;
+		img {
+			display: block;
+			padding: 5px 0;
+		}
+	}
+	.timestamp {
+		color: $gray-light;
+		display: block;
+		margin-left: 5px;
+	
+	}
+
+}
+
+aside {
+	textarea {
+		height: 100px;
+		margin-bottom: 5px;
+	}
+}
+
+span.image {
+	margin-top: 10px;
+	input {
+		border: 0;
+	}
+}

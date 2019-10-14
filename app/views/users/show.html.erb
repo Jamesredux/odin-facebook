@@ -39,3 +39,17 @@
         <% end %>
 
 <% end %>                               
+
+
+   
+  <div class="col-md-8">
+    <% if @current_user.posts.any? %>
+      <h3>Timeline</h3>
+      <ol class="timeline">
+      <%= render @posts %>
+      </ol>
+
+      <%= paginate @posts %>
+    <% end %>
+  
+  </div>

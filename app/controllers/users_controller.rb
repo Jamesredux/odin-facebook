@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     @friends = current_user.friends
     redirect_to root_url and return unless @user.confirmed?
+    @posts = @user.posts.page(params[:page]).per(15)
   end
 
   def index

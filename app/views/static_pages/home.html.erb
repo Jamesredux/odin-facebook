@@ -11,6 +11,18 @@
   <% end %>
 </div>
 
-		
-	<%= link_to image_tag("odin.svg", alt: "Odin logo", width: "200px"),
-												"https://theodinproject.com/" %>
+<% if user_signed_in? %>		
+	<div class="col-md-8">
+		<% if @current_user.posts.any? %>
+			<h3>Timeline</h3>
+			<ol class="timeline">
+			<%= render @posts %>
+			</ol>
+
+			<%= paginate @posts %>
+		<% end %>
+	
+	</div>
+<% end %>			
+
+
