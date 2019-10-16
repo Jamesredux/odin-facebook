@@ -1,10 +1,11 @@
 
 
-<div class="center jumbotron">
-	<h1>Odin-Facebook by Jamesredux</h1>
+
 	
 
 	<% unless user_signed_in? %>
+  <div class="center jumbotron">
+  <h1>Odin-Facebook by Jamesredux</h1>
 	<h2>Please log in to see features</h2>
 	<%= link_to "Create Account", new_user_registration_path, class: "btn btn-lg btn-primary" %>
   <p><%= link_to "Sign in", new_user_session_path %></p>
@@ -12,6 +13,7 @@
 </div>
 
 <% if user_signed_in? %>		
+ 
   <div class="row">
     <aside class="col-md-4">
       <section class="user_info">
@@ -22,17 +24,15 @@
       </section>
     </aside>
   </div>
-	<div class="col-md-8">
-		<% if @current_user.posts.any? %>
-			<h3>Timeline</h3>
-			<ol class="timeline">
-			<%= render @posts %>
-			</ol>
 
-			<%= paginate @posts %>
-		<% end %>
-	
+	<div class="col-md-8">
+		<h3>Timeline</h3>
+		<%= render 'shared/timeline' %>
 	</div>
+
+
+
+		
 <% end %>			
 
 

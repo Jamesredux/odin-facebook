@@ -26,4 +26,25 @@ post_<%= n %>:
  created_at: <%= 42.days.ago %>
  user: james
 <% end %>
+
+
+ants:
+  content: "Oh is that what you want?"
+  created_at: <%= 2.years.ago %>
+  user: dale
+
+zone:
+  content: "Danger zone"
+  created_at: <%= 3.days.ago %>
+  user: dale
+
+tone:
+  content: "you will have to speak up"
+  created_at: <%= 10.minutes.ago %>
+  user: gordon
+
+van:
+  content: "get in the van"
+  created_at: <%= 4.hours.ago %>
+  user: gordon      
   

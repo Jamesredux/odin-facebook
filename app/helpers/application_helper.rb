@@ -10,6 +10,10 @@ module ApplicationHelper
 		end		
 	end
 
+	def is_signed_in_user(user)
+		user == current_user
+	end
+
 
 	private
 

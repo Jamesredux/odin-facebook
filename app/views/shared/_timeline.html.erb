@@ -1,0 +1,11 @@
+	
+
+		<% if @current_user.posts.any? %>
+			
+			<ol class="timeline">
+			<%= render @posts %>
+			</ol>
+
+			<%= paginate @posts, params: { controller: :static_pages, action: :home } %>
+		<% end %>
+	

@@ -54,4 +54,7 @@ added lockable to lock account after 10 unsucessful sign in attempts
 
    create friendships with user.friendships.create or Friendship.create
    can list friends with user.friend_ids
+
+   have 2 error message partials one in devise/shared/_error_messages and 
+   one in shared/error_messages turn this into one
    

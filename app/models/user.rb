@@ -20,10 +20,17 @@ class User < ApplicationRecord
   validates :email, length: { maximum: 255 }   
 
 
+  def feed
+    Post.where("user_id = ?", id) 
+  end
+
+
 #this method was added for test/fixtures/users.yml but is not needed for that now, remove??
   def User.digest(string)
   	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
   																							 BCrypt::Engine.cost
   	BCrypt::Password.create(string, cost: cost)																						 	
   end
+
+
 end
