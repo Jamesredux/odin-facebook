@@ -23,6 +23,9 @@ gem 'omniauth-facebook'
 gem 'bcrypt', '3.1.12'
 gem 'faker', '2.1.2'
 gem 'kaminari'
+gem 'aws-sdk-s3', '1.46.0', require: false
+gem 'image_processing', '1.9.3'
+gem 'mini_magick',       '4.9.5'
 gem 'active_storage_validations', '0.8.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -30,7 +33,7 @@ gem 'active_storage_validations', '0.8.2'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
