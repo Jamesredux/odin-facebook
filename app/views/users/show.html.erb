@@ -20,7 +20,7 @@
     <ul>
 	     <li><%= link_to "edit user", edit_user_registration_path %></li>
        <li><%= link_to "Friends", friendships_path %></li>
-       <li> <%= link_to "Friend Requests Sent", requests_sent_path %></li>
+       <li> <%= link_to "Friend Requests Sent", sent_requests_path %></li>
     </ul>
 
   <% end %>
@@ -31,14 +31,15 @@
 
 
 
-<% if !current_user?(@user) && not_friends(@user) && not_already_sent(@user) %>  
-        <%= form_for current_user.requests.build do |f| %>
-        <%= f.hidden_field :pending_friend, :value => @user.id %>
-      
-        <%= f.submit "Send Friend Request", class: "btn btn-primary btn-sm" %>
-        <% end %>
+       
 
+
+<% if !current_user?(@user) && not_friends(@user)  %>  
+    <%= render 'requests/request_button', user: @user %>   
+<% elsif !current_user?(@user) %>      
+    <%= render 'friendships/unfriend', friend: @user %>
 <% end %>                               
+
 
 
    

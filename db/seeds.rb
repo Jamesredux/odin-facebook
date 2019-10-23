@@ -34,3 +34,10 @@ users = User.order(:created_at).take(6)
 	content = Faker::TvShows::TwinPeaks.quote
 	users.each { |user| user.posts.create!(content: content) }
 end	
+
+# create some friendships
+users = User.all
+user = User.first
+
+friends = users[2..10]
+friends.each { |friend| user.friends << friend }

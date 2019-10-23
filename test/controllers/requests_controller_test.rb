@@ -19,7 +19,7 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
   		get requests_path
 
   		assert_difference 'Request.count', +1 do
-	  		post requests_path, params: {request: { pending_friend: @other_user.id } }
+	  		post requests_path, params: { pending_friend: @other_user.id } 
 	  	end	
 	  	assert_redirected_to users_path
 	  	follow_redirect!
@@ -31,7 +31,7 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
   		@user.friends<<@other_user
 
   		assert_no_difference 'Request.count' do
-  			post requests_path, params: {request: { pending_friend: @other_user.id } }
+  			post requests_path, params: { pending_friend: @other_user.id } 
   		end
   		assert_redirected_to users_path
   		follow_redirect!
@@ -44,7 +44,7 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
   		@request.save
   		
   		assert_no_difference 'Request.count' do
-  			post requests_path, params: {request: { pending_friend: @other_user.id } }
+  			post requests_path, params: { pending_friend: @other_user.id } 
   		end
   		assert_redirected_to users_path
   		follow_redirect!
