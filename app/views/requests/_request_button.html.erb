@@ -1,9 +1,0 @@
-<% unless is_signed_in_user(user) %>
-	<div id="request_button">
-		<% if current_user.pending_friends.include?(user) %>
-			<%= render 'requests/cancel_request', user: user  %>
-			<% else %>
-			<%= render 'requests/send_request', user: user  %>
-		<% end %>
-		</div>
-<% end %>			

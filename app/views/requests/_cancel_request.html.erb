@@ -1,8 +1,0 @@
-
-
-
- <%= form_with(model: current_user.requests.find_by(pending_friend: user), 
-	 html: { method: :delete }, remote: true) do |f| %> 
- <%= f.submit "Cancel Request", class: "btn" %> 
- <% end %>   
-

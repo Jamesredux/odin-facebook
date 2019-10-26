@@ -23,7 +23,7 @@ class RequestsController < ApplicationController
 
 		@new_request = current_user.requests.new(pending_friend: @pending_friend)
 			if @new_request.save
-				flash[:success] = "Request sent"
+				flash.now[:success] = "Request sent"
 				respond_to do |format|
 					format.html { redirect_to request.referrer || users_path }
 					format.js
@@ -40,7 +40,7 @@ class RequestsController < ApplicationController
 		if current_user == @friend_request.user
 
 			@friend_request.destroy
-			flash[:info] = "Request cancelled"
+			flash.now[:info] = "Request cancelled"
 		else
 			@friend_request.destroy
 			flash[:info] = "Request declined"

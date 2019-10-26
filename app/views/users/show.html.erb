@@ -35,15 +35,13 @@
 
 
 <% if !current_user?(@user) && not_friends(@user)  %>  
-    <%= render 'requests/request_button', user: @user %>   
+  <%= render 'shared/friend_request', friend: @user %>
+    
 <% elsif !current_user?(@user) %>      
     <%= render 'friendships/unfriend', friend: @user %>
 
 <% end %>                               
 
-<% if !current_user?(@user) && not_friends(@user) %>
-<%= render 'shared/friend_request', friend: @user %>
-<% end %>
 
    
   <div class="col-md-8">

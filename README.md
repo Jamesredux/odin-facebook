@@ -61,3 +61,6 @@ added lockable to lock account after 10 unsucessful sign in attempts
 
    What needs to be indexed?
 A good rule of thumb is to create database indexes for everything that is referenced in the WHERE, HAVING and ORDER BY parts of your SQL queries.
+
+
+the ajax button seems to work but only on the user show page
