@@ -58,3 +58,6 @@ added lockable to lock account after 10 unsucessful sign in attempts
    have 2 error message partials one in devise/shared/_error_messages and 
    one in shared/error_messages turn this into one
    
+
+   What needs to be indexed?
+A good rule of thumb is to create database indexes for everything that is referenced in the WHERE, HAVING and ORDER BY parts of your SQL queries.

@@ -24,18 +24,19 @@ class RequestsController < ApplicationController
 		@new_request = current_user.requests.new(pending_friend: @pending_friend)
 			if @new_request.save
 				flash[:success] = "Request sent"
-				redirect_to request.referrer || users_path
+				respond_to do |format|
+					format.html { redirect_to request.referrer || users_path }
+					format.js
+				end
 			else
 				flash[:error] = "Unable to send request"
 				redirect_to request.referrer || users_path
-
-			
 			end
 				
 	end
 
 	def destroy
-		
+		@pending_friend = @friend_request.pending_friend
 		if current_user == @friend_request.user
 
 			@friend_request.destroy
@@ -44,7 +45,10 @@ class RequestsController < ApplicationController
 			@friend_request.destroy
 			flash[:info] = "Request declined"
 		end	
-		redirect_to request.referrer || requests_path
+		respond_to do |format|
+			format.html { redirect_to request.referrer || requests_path }
+			format.js
+		end	
 	end
 
 	def update

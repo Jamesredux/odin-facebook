@@ -10,9 +10,9 @@
 		<% pending_friend = User.find(request.pending_friend_id) %>
 	
 		<%= link_to pending_friend.name, pending_friend %>
-	| <%= form_for request, method: :delete do |f| %>
-				<%= f.submit "Cancel Request", class: "btn btn-group btn-primary btn-sm" %>
-				<% end %>		
+	| 	
+
+		<%= render 'cancel_request', user: pending_friend %>		
 
 	</li>
 

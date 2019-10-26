@@ -14,7 +14,7 @@ class Request < ApplicationRecord
 
   def accept
   	
-		 user.friends << pending_friend
+		user.friends << pending_friend
 	 	destroy 
 
 	end

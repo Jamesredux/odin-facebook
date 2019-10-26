@@ -18,7 +18,7 @@ class FriendshipsIndexTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get friendships_path
     assert_template 'friendships/index'
-
+    assert_not @user.friends.empty?
     first_page_of_friends = @user.friends.page(1).per(15)
 
     first_page_of_friends.each do |friend|

@@ -12,7 +12,7 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
   	test "must be logged in to create request" do 
 
   		assert_no_difference 'Request.count' do
-  			post requests_path, params: {request: { pending_friend: @other_user.id } }
+  			post requests_path, params: { pending_friend: @other_user.id } 
   		end
 
   		log_in_as(@user)
