@@ -34,9 +34,10 @@
        
 
 
-<% if !current_user?(@user) && not_friends(@user)  %>  
+<% if !current_user?(@user) && not_friends(@user)  %>
+  <div id="friend_request_<%= @user.id %>">  
   <%= render 'shared/friend_request', friend: @user %>
-    
+  </div>  
 <% elsif !current_user?(@user) %>      
     <%= render 'friendships/unfriend', friend: @user %>
 

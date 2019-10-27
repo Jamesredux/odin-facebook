@@ -11,8 +11,11 @@
 	
 		<%= link_to pending_friend.name, pending_friend %>
 	| 	
-
-		<%= render 'cancel_request', user: pending_friend %>		
+		<%= form_with(model: current_user.requests.find_by(pending_friend: pending_friend), 
+					 html: { method: :delete }, local: true) do |f| %> 
+					 <%= f.submit "Cancel Request", class: "btn" %> 
+ 		<% end %>   
+			
 
 	</li>
 

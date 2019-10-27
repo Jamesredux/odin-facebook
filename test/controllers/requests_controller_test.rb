@@ -21,9 +21,10 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
   		assert_difference 'Request.count', +1 do
 	  		post requests_path, params: { pending_friend: @other_user.id } 
 	  	end	
+      assert_select 'div.alert', "Request sent"
 	  	assert_redirected_to users_path
 	  	follow_redirect!
-	  	assert_select 'div.alert', "Request sent"
+	  	
   	end	
 
   	test "can't create request when already friends" do 

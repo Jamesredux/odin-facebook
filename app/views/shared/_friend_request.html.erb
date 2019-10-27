@@ -1,5 +1,5 @@
 
-	<div id="friend_request">
+	<div id="friend_request_<%= friend.id %>">
 		<% if current_user.pending_friends.include?(friend) %>
 			 <%= form_with(model: current_user.requests.find_by(pending_friend: friend), 
 					 html: { method: :delete }, remote: true) do |f| %> 

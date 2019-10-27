@@ -20,13 +20,13 @@ class RequestsController < ApplicationController
 
 	def create
 		@pending_friend = User.find(params[:pending_friend])
-
+		@pf_id = @pending_friend.id
 		@new_request = current_user.requests.new(pending_friend: @pending_friend)
 			if @new_request.save
-				flash.now[:success] = "Request sent"
+				
 				respond_to do |format|
-					format.html { redirect_to request.referrer || users_path }
-					format.js
+					format.html { redirect_to request.referrer || users_path, flash[:success] = "Request sent" }
+					format.js { flash.now[:success] = "Request sent" }
 				end
 			else
 				flash[:error] = "Unable to send request"
@@ -37,6 +37,7 @@ class RequestsController < ApplicationController
 
 	def destroy
 		@pending_friend = @friend_request.pending_friend
+		@pf_id = @pending_friend.id
 		if current_user == @friend_request.user
 
 			@friend_request.destroy

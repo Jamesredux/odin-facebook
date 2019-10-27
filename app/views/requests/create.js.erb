@@ -1,2 +1,2 @@
 
-$("#friend_request").html("<%= escape_javascript(render('shared/friend_request', friend: @pending_friend)) %>")
+$("#friend_request_<%= @pf_id %>").html("<%= escape_javascript(render('shared/friend_request', friend: @pending_friend)) %>")

@@ -17,7 +17,7 @@
 
 		<% elsif !current_user?(user) %>	
 		
-			<%= render 'requests/request_button', user: user %>
+			<%= render 'shared/friend_request', friend: user %>
 		<% end %>			
 		
 </li>
