@@ -49,4 +49,6 @@ class FriendshipTest < ActiveSupport::TestCase
   	assert_not @other_user.friends.include?(@user)
 
   end	
+
+
 end

@@ -82,4 +82,24 @@ class UserTest < ActiveSupport::TestCase
       end
    end      
 
+
+   test "status feed should have correct posts" do
+      james    = users(:james)
+      dale     = users(:dale)
+      gordon   = users(:gordon)
+      @friendship = Friendship.new(user: james, friend: dale)
+      @friendship.save
+      #posts from friend
+      dale.posts.each do |post_friend|
+        assert james.feed.include?(post_friend)
+      end
+      # posts from self
+      james.posts.each do |post_self|
+         assert james.feed.include?(post_self)
+      end
+      # posts from user who is not friend
+      gordon.posts.each do |post_unfriend|
+        assert_not james.feed.include?(post_unfriend)
+      end   
+   end   
 end
