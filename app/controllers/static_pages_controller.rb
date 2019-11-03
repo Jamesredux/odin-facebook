@@ -4,7 +4,9 @@ class StaticPagesController < ApplicationController
   
   	if current_user
       @post = current_user.posts.build
-  		@posts = current_user.posts.page(params[:page]).per(15)
+      if current_user.feed
+        @feed = current_user.feed.page(params[:page]).per(15)
+      end  
   	end
   end
 

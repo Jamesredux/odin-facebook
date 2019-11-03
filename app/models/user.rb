@@ -21,7 +21,11 @@ class User < ApplicationRecord
 
 
   def feed
-    Post.where("user_id IN (?) OR user_id = ?", friend_ids, id)
+   
+    friend_ids = "SELECT friend_id FROM friendships
+                 WHERE user_id = :user_id"
+    Post.where("user_id IN (#{friend_ids}) 
+                OR user_id  = :user_id", user_id: id)
   end
 
 
