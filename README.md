@@ -64,3 +64,18 @@ A good rule of thumb is to create database indexes for everything that is refere
 
 
 the ajax button seems to work but only on the user show page
+
+
+
+$ rails test
+$ git add -A
+$ git commit -m "Add user following"
+$ git checkout master
+$ git merge following-users
+We can then push the code to the remote repository and deploy the application to production:
+
+$ git push
+$ git push heroku
+$ heroku pg:reset DATABASE
+$ heroku run rails db:migrate
+$ heroku run rails db:seed

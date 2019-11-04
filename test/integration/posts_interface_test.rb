@@ -39,4 +39,13 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
      assert_select 'a', text: 'delete', count: 0
      
    end
+
+   test "home page should have feed" do 
+    log_in_as(@user)
+    get  root_path
+    @user.feed.page(1).per(10) do |post|
+        assert_match CGI.escapeHTML(post.content), response.body 
+    end    
+   end 
+
 end
