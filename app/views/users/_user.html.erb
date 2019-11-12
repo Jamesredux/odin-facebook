@@ -1,7 +1,11 @@
 
 
 <li>
-		<%= gravatar_for user, size: 50 %>
+		<% if user.image.attached? %>
+        <%= image_tag user.display_image  %>
+    <% else %>
+				<%= gravatar_for user, size: 50 %>
+		<% end %>		
 		<%= link_to user.name, user %>
 		
 		<% if current_user.admin? && !current_user?(user) %>

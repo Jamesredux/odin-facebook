@@ -18,6 +18,22 @@ class UsersController < ApplicationController
    
   end	
 
+  def edit
+    @user = User.find(params[:id])
+  end  
+
+  def update
+    @user = User.find(params[:id])
+    @user.image.attach(params[:user][:image])
+    if @user.save
+      flash[:success] = "Avatar added"
+      redirect_to request.referrer || user_path
+    else
+     
+      render 'static_pages/home'
+    end   
+  end
+
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User Deleted"

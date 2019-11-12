@@ -6,7 +6,11 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
+        <% if @user.image.attached? %>
+          <%= image_tag @user.display_image  %>
+        <% else %>
+          <%= gravatar_for @user %>
+        <% end %>
         <%= @user.name %>
       </h1>
     </section>
@@ -19,6 +23,7 @@
   <% if signed_in_user? %>
     <ul>
 	     <li><%= link_to "edit user", edit_user_registration_path %></li>
+       <li><%= link_to "change profile pic", edit_user_path %></li>
        <li><%= link_to "Friends", friendships_path %></li>
        <li> <%= link_to "Friend Requests Sent", sent_requests_path %></li>
        <li> <%= link_to "Picture Posts", pic_posts_path %></li>

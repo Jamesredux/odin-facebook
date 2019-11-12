@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :pic_posts, dependent: :destroy
 
+  has_one_attached :image
+
 	before_save { self.email = email.downcase }
 
   # Include default devise modules. Others available are:
@@ -17,7 +19,16 @@ class User < ApplicationRecord
          :timeoutable, :omniauthable, :confirmable, :lockable
 
   validates :name, presence: true, length: { maximum: 50 }    
-  validates :email, length: { maximum: 255 }   
+  validates :email, length: { maximum: 255 } 
+  validates :image,   content_type: { in: %w[image/jpeg image/gif image/png],
+                                      message: "must be a valid image format" },
+                      size:         { less_than: 2.megabytes,
+                                      message:   "should be less than 3MB" }
+
+
+  def display_image
+    image.variant(resize_to_limit: [50, 50] )  
+  end   
 
 
   def feed

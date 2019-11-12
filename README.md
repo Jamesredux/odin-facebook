@@ -79,3 +79,7 @@ $ git push heroku
 $ heroku pg:reset DATABASE
 $ heroku run rails db:migrate
 $ heroku run rails db:seed
+
+
+
+shared/user_info _user partial and user show page all repeat the same info 
