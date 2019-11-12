@@ -1,0 +1,20 @@
+
+
+<li id="pic_post-<%= pic_post.id %>">
+	<%= link_to gravatar_for(pic_post.user, size: 50), pic_post.user %>
+	<span class="user"><%= link_to pic_post.user.name, pic_post.user %></span>	
+
+	<span class="content">
+		
+		<%= image_tag pic_post.display_image if pic_post.image.attached? %>
+	</span>
+	
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(pic_post.created_at) %> ago.
+		<% if is_signed_in_user(pic_post.user) %>
+		<%= link_to "delete", pic_post, method: :delete,
+													data: { confirm: "Are you sure?" }  %>
+		<% end %>											
+		</span> 
+	
+</li>

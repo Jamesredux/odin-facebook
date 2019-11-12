@@ -1,0 +1,13 @@
+
+<%= provide(:title, "Pictures") %>
+<h1>Your Uploads</h1>
+<%= link_to "Upload a Picture Post", new_pic_post_path %>
+
+	<ul class="pic_posts">
+
+		<%= render @pic_posts %>
+							  
+	</ul>
+
+	
+

@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     @friends = current_user.friends
     redirect_to root_url and return unless @user.confirmed?
     @posts = @user.posts.page(params[:page]).per(15)
+    @pic_posts = @user.pic_posts.page(params[:page]).per(15)
+    @user_feed = (@user.pic_posts + @user.posts).sort{ |a,b| a.created_at  <=> b.created_at }.reverse!
+    @user_feed = Kaminari.paginate_array(@user_feed).page(params[:page]).per(15)
   end
 
   def index

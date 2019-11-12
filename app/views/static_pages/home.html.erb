@@ -19,11 +19,24 @@
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
-      <section class="post_form">
-        <%= render 'shared/post_form' %>
-      </section>
+
     </aside>
   </div>
+
+  <div class="row">
+    <div class="col-md-4">
+        <section class="post_form">
+        <%= render 'shared/post_form' %>
+      </section>
+    </div>
+
+    <div class="col-md-4">
+        <section class="post_form">
+        <%= render 'shared/pic_post_form' %>
+      </section>
+    </div>
+  </div>
+
 
 	<div class="col-md-8">
 		<h3>Timeline</h3>

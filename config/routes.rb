@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :pic_posts
   devise_for :users, controllers: { registrations: 'users/registrations' }
   #get 'users/new' not sure why this is here or if it is neeeded??
   root 'static_pages#home'

@@ -21,6 +21,7 @@
 	     <li><%= link_to "edit user", edit_user_registration_path %></li>
        <li><%= link_to "Friends", friendships_path %></li>
        <li> <%= link_to "Friend Requests Sent", sent_requests_path %></li>
+       <li> <%= link_to "Picture Posts", pic_posts_path %></li>
     </ul>
 
   <% end %>
@@ -46,13 +47,13 @@
 
    
   <div class="col-md-8">
-    <% if @current_user.posts.any? %>
+    <% if @current_user.posts.any? || @current_user.pic_posts.any? %>
       <h3>Timeline</h3>
       <ol class="timeline">
-      <%= render @posts %>
+      <%= render @user_feed %>
       </ol>
 
-      <%= paginate @posts %>
+      <%= paginate @user_feed  %>
     <% end %>
   
   </div>

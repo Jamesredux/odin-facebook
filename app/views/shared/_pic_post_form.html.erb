@@ -1,9 +1,6 @@
-
-<%= form_with(model: @post, local: true) do |f| %>
+<%= form_with(model: @pic_post, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new post..." %>
-  </div>
+
   
   <span class="image">
   	<%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
@@ -20,3 +17,4 @@
 			$("#micropost_image").val("");
 	});
 </script>	
+

@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :pending_friends, through: :requests #, source: :pending_friend
 
   has_many :posts, dependent: :destroy
-
+  has_many :pic_posts, dependent: :destroy
 
 	before_save { self.email = email.downcase }
 
@@ -24,8 +24,13 @@ class User < ApplicationRecord
    
     friend_ids = "SELECT friend_id FROM friendships
                  WHERE user_id = :user_id"
-    Post.where("user_id IN (#{friend_ids}) 
+
+     @posts = Post.where("user_id IN (#{friend_ids}) 
+                OR user_id  = :user_id", user_id: id) 
+     @post_pics = PicPost.where("user_id IN (#{friend_ids}) 
                 OR user_id  = :user_id", user_id: id)
+
+     return (@posts + @post_pics).sort{ |a,b| a.created_at  <=> b.created_at }.reverse!
   end
 
 

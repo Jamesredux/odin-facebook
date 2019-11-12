@@ -1,0 +1,2 @@
+module PicPostsHelper
+end
