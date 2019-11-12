@@ -33,6 +33,10 @@ class User < ApplicationRecord
      return (@posts + @post_pics).sort{ |a,b| a.created_at  <=> b.created_at }.reverse!
   end
 
+  def user_feed
+    (self.pic_posts + self.posts).sort{ |a,b| a.created_at  <=> b.created_at }.reverse!
+  end
+
 
 #this method was added for test/fixtures/users.yml but is not needed for that now, remove??
   def User.digest(string)
