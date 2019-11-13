@@ -1,13 +1,9 @@
 
 
 <li>
-		<% if user.image.attached? %>
-        <%= image_tag user.display_image  %>
-    <% else %>
-				<%= gravatar_for user, size: 50 %>
-		<% end %>		
-		<%= link_to user.name, user %>
-		
+
+		 <%= render 'shared/user_info', user: user, size: 50 %>
+
 		<% if current_user.admin? && !current_user?(user) %>
 			| <%= link_to "delete", user, method: :delete,
 																data: { confirm: "Are you sure?" } %>

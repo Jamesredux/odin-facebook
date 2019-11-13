@@ -26,8 +26,8 @@ class User < ApplicationRecord
                                       message:   "should be less than 3MB" }
 
 
-  def display_image
-    image.variant(resize_to_limit: [50, 50] )  
+  def display_image(size = 50)
+    image.variant(resize_to_limit: [size, size] )  
   end   
 
 
