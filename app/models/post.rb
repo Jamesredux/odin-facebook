@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :comments, as: :commentable
   has_one_attached :image
 
   default_scope -> { order(created_at: :desc) }

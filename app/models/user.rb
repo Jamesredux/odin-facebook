@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :comments, foreign_key: "author_id", dependent: :destroy
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 
@@ -7,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :pic_posts, dependent: :destroy
+  
+
 
   has_one_attached :image
 
