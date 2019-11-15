@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
  
+  get 'comments/create'
+  get 'comments/show'
+  get 'comments/destroy'
+  get 'comment/create'
+  get 'comment/show'
+  get 'comment/destroy'
   resources :pic_posts
   devise_for :users, controllers: { registrations: 'users/registrations' }
   #get 'users/new' not sure why this is here or if it is neeeded??
@@ -17,6 +23,7 @@ Rails.application.routes.draw do
       get :sent
     end  
   end  
-  resources :posts, only: [:create, :destroy]
+  resources :posts, only: [:create, :destroy, :show]
+  resources :comments, only: [:create, :destroy, :show]
   
 end

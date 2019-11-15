@@ -20,6 +20,10 @@ class PostsController < ApplicationController
 		redirect_to request.referrer || root_url
 	end	
 
+	def show
+		@post = Post.find(params[:id])
+	end	
+
 	private
 
 	def post_params

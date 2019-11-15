@@ -6,7 +6,8 @@
 		<%= post.content %>
 		<%= image_tag post.display_image if post.image.attached? %>
 	</span>
-	
+
+	<span class="link"><%= link_to "post page", post_path(post.id) %></span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(post.created_at) %> ago.
 		<% if is_signed_in_user(post.user) %>
