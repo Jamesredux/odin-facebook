@@ -6,6 +6,7 @@
     <%= f.text_area :content, placeholder: "Write a comment here...", class: "form-control" %>
     <%= f.hidden_field :commentable_id, value: post.id %>
     <%= f.hidden_field :author_id, value: user.id %>
+    <%= f.hidden_field :commentable_type, value: post.class %>
   </div>
   <div class="comment-button-wrapper">
     <%= f.submit "Comment", class: "btn btn-primary btn-sm comment-btn" %>

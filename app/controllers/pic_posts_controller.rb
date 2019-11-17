@@ -6,6 +6,10 @@ class PicPostsController < ApplicationController
 		@pic_post = PicPost.new
 	end
 
+	def show
+		@pic_post = PicPost.find(params[:id])
+	end
+
 	def create
 		@pic_post = current_user.pic_posts.build(post_params)
 		@pic_post.image.attach(params[:pic_post][:image])

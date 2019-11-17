@@ -1,0 +1,10 @@
+
+<ul>
+<% post.comments.each do |c| %>
+
+	<li class="comment">
+		<%= c.content %>
+		<%= link_to c.author.name, c.author %>
+	</li>
+<% end %>
+</ul>

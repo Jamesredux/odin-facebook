@@ -2,12 +2,13 @@
 <li id="post-<%= post.id %>">
 	<%= link_to gravatar_for(post.user, size: 50), post.user %>
 	<span class="user"><%= link_to post.user.name, post.user %></span>
-	<span class="content">
-		<%= post.content %>
+	<div class="content">
+		<span class="link-post"><%= link_to post.content, post_path(post.id) %></span>
+		
 		<%= image_tag post.display_image if post.image.attached? %>
-	</span>
+	</div>
 
-	<span class="link"><%= link_to "post page", post_path(post.id) %></span>
+	
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(post.created_at) %> ago.
 		<% if is_signed_in_user(post.user) %>
@@ -15,5 +16,11 @@
 													data: { confirm: "Are you sure?" }  %>
 		<% end %>											
 		</span> 
+		<% if post.comments.exists? %>
+			<%= render 'comments/comment', post: post %>
+		<% end %>
+			 
+		<%= render 'shared/comment_form', user: current_user, post: post %>
+	
 	
 </li>

@@ -6,9 +6,15 @@
 
 	<span class="content">
 		
-		<%= image_tag pic_post.display_image if pic_post.image.attached? %>
+
+
+		<% if pic_post.image.attached? %>
+
+			<div class="link"><%= link_to image_tag(pic_post.display_image), pic_post_path(pic_post.id) %></div>
+
+		<% end %>	
 	</span>
-	
+		
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(pic_post.created_at) %> ago.
 		<% if is_signed_in_user(pic_post.user) %>
@@ -16,5 +22,11 @@
 													data: { confirm: "Are you sure?" }  %>
 		<% end %>											
 		</span> 
+
+		<% if pic_post.comments.exists? %>
+			<%= render 'comments/comment', post: pic_post %>
+		<% end %>
+			 
+		<%= render 'shared/comment_form', user: current_user, post: pic_post %>
 	
 </li>
