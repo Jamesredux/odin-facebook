@@ -26,7 +26,8 @@
 		<% if pic_post.comments.exists? %>
 			<%= render 'comments/comment', post: pic_post %>
 		<% end %>
-			 
+		
+		<%= render 'shared/like_button', post: pic_post %>	 
 		<%= render 'shared/comment_form', user: current_user, post: pic_post %>
 	
 </li>

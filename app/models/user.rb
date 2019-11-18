@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :comments, foreign_key: "author_id", dependent: :destroy
+  has_many :likes, foreign_key: "liker_id", dependent: :destroy
+  
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 

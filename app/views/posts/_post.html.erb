@@ -20,6 +20,7 @@
 			<%= render 'comments/comment', post: post %>
 		<% end %>
 			 
+		<%= render 'shared/like_button', post: post %>	 
 		<%= render 'shared/comment_form', user: current_user, post: post %>
 	
 	
