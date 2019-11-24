@@ -2,6 +2,9 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: "author_id", dependent: :destroy
   has_many :likes, foreign_key: "liker_id", dependent: :destroy
   
+  has_many :liked_posts, through: :likes, source: :likeable, source_type: :Post
+  has_many :liked_pic_posts, through: :likes, source: :likeable, source_type: :PicPost
+
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 
