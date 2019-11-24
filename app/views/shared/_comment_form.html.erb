@@ -3,7 +3,7 @@
 <%= form_for(post.comments.build, remote: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field comment-field">
-    <%= f.text_area :content, placeholder: "Write a comment here...", class: "form-control" %>
+    <%= f.text_area :content, placeholder: "Write a comment here...", required: true, class: "form-control" %>
     <%= f.hidden_field :commentable_id, value: post.id %>
     <%= f.hidden_field :author_id, value: user.id %>
     <%= f.hidden_field :commentable_type, value: post.class %>

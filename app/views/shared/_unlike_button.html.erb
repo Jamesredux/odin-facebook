@@ -1,0 +1,16 @@
+
+
+
+<div id="like_button">
+		<% @id = post.find_like(current_user) %>
+		<%= form_with(model: Like.find(@id),
+				html: {method: :delete}, remote: true) do |f| %>
+				<%= f.hidden_field :post, value: post %>
+		<%= f.submit "Unlike Post", class: "btn" %>
+	
+	
+	
+
+<% end %>	
+
+

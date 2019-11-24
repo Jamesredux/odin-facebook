@@ -15,5 +15,15 @@ class PicPost < ApplicationRecord
 
   def display_image
  		image.variant(resize_to_limit: [500, 500] )  
-  end                          
+  end       
+
+    #post.liked_by method for like button??
+  def liked_by?(user)
+      Like.where(liker_id: user.id).exists?
+  end 
+
+  def find_like(user)
+    @like = likes.find_by(liker_id: user.id)
+    @like.id                                
+  end                    
 end

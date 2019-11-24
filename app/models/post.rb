@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable
   has_many :likes, as: :likeable
+
   has_one_attached :image
 
   default_scope -> { order(created_at: :desc) }
@@ -16,5 +17,17 @@ class Post < ApplicationRecord
 
   def display_image
  		image.variant(resize_to_limit: [500, 500] )  
-  end                                    
+  end    
+
+
+  #post.liked_by method for like button??
+  def liked_by?(user)
+
+      likes.where(liker_id: user.id).exists?
+  end  
+
+  def find_like(user)
+    @like = likes.find_by(liker_id: user.id)
+    @like.id                                
+  end                              
 end

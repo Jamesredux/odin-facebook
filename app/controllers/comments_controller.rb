@@ -13,8 +13,10 @@ class CommentsController < ApplicationController
 			flash[:success] = "Comment created"
 			redirect_to request.referrer || root_url
 		else
-			@feed = current_user.feed.page(params[:page]).per(15)
-			render 'static_pages/home'
+			#@feed = current_user.feed.page(params[:page]).per(15)
+		  flash[:danger] = "Error Posting comment"
+			redirect_to request.referrer || root_url
+			
 		end		
   end
 
