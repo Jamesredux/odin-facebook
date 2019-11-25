@@ -1,10 +1,10 @@
 
 
 
-<div id="like_button">
+<span id="like_button_<%= post.unique_id %>">
 	<% if post.liked_by?(current_user)  %>
-		<% id = post.find_like(current_user) %>
-		<%= form_with(model: Like.find(15),
+		<% @like = post.find_like(current_user) %>
+		<%= form_with(model: @like,
 				html: {method: :delete}, remote: true) do |f| %>
 		<%=		f.hidden_field :post, value: post %>
 		<%= f.submit "Unlike Post", class: "btn" %>
@@ -19,14 +19,14 @@
     <%= f.hidden_field :likeable_id, value: post.id %>
     <%= f.hidden_field :liker_id, value: current_user.id %>
     <%= f.hidden_field :likeable_type, value: post.class %>
-  </div>
-  <div class="like-button-wrapper">
+ 
+  
     <%= f.submit "Like", class: "btn btn-primary btn-sm like-btn" %>
-  </div>
+  
 	<% end %>
 
 	<% end %> 
-</div>
+</span>
 
 
 

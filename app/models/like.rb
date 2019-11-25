@@ -7,4 +7,10 @@ class Like < ApplicationRecord
   validates :liker_id, presence: true
 
   validates :liker_id, :uniqueness => { :scope => [:likeable_type, :likeable_id] }
+
+
+  private
+
+
+
 end

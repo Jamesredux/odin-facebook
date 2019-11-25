@@ -24,12 +24,21 @@ class Post < ApplicationRecord
 
   #post.liked_by method for like button??
   def liked_by?(user)
-
-      likes.where(liker_id: user.id).exists?
+      self.liker_ids.include?(user.id)
+      #likes.where(liker_id: user.id).exists?
   end  
 
   def find_like(user)
-    @like = likes.find_by(liker_id: user.id)
-    @like.id                                
-  end                              
+
+    @like = Like.find_by(likeable: self, liker: user)
+    @like                                
+  end         
+
+
+  #method to create unique id for css as Picposts and Posts can have the same Id no
+  #so that ajax can identify correct button
+  def unique_id
+    @id = "p"
+    @id << self.id.to_s
+  end                     
 end

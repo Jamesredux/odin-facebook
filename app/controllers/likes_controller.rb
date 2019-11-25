@@ -3,7 +3,8 @@ class LikesController < ApplicationController
 	def create
 		
 		@like = current_user.likes.build(like_params)
-		@post = find_post(like_params)
+		@post = find_post(@like)
+		@post_unique_id = @post.unique_id
 		if @like.save
 			flash.now[:success] = "Post liked"
 				respond_to do |format|
@@ -20,8 +21,9 @@ class LikesController < ApplicationController
 
 	def destroy
 		@like = Like.find(params[:id])
-		@like.destroy
 		@post = find_post(@like)
+		@post_unique_id = @post.unique_id
+		@like.destroy
 		flash[:info] = "Post unliked"
 		respond_to do |format|
 					format.html { redirect_to request.referrer || users_path, :notice => "Like removed" }
