@@ -26,7 +26,7 @@ class PicPost < ApplicationRecord
   end 
 
   def find_like(user)
-    @like = likes.find_by(liker_id: user.id)
-    @like.id                                
+   # @like = likes.find_by(liker_id: user.id)
+  #  @like.id                                
   end                    
 end

@@ -21,7 +21,7 @@ class LikesController < ApplicationController
 	def destroy
 		@like = Like.find(params[:id])
 		@like.destroy
-		@post = params[:post]
+		@post = find_post(@like)
 		flash[:info] = "Post unliked"
 		respond_to do |format|
 					format.html { redirect_to request.referrer || users_path, :notice => "Like removed" }
@@ -31,12 +31,19 @@ class LikesController < ApplicationController
 
 
 
-	def find_post(like_params)
-		if params[:like][:likeable_type] == "Post"
-			@post = Post.find(params[:like][:likeable_id])
+	def find_post(like)
+		if like.likeable_type == "Post"
+			@post = Post.find(like.likeable_id)
 		else
-			@post = PicPost.find(params[:like][:likeable_id])
+			@post = PicPost.find(like.likeable_id)
 		end
+				
+
+		#if params[:like][:likeable_type] == "Post"
+	#		@post = Post.find(params[:like][:likeable_id])
+	#	else
+	#		@post = PicPost.find(params[:like][:likeable_id])
+	#	end
 		@post		
 	end
 

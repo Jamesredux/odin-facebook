@@ -19,11 +19,9 @@
 		<% if post.comments.exists? %>
 			<%= render 'comments/comment', post: post %>
 		<% end %>
-		<% if post.liked_by?(current_user) %>
-			<%= render 'shared/unlike_button', post: post  %>
-		<%	else %>	 
+
 		<%= render 'shared/like_button', post: post %>
-		<% end %>
+
 
 		<%= render 'shared/comment_form', user: current_user, post: post %>
 	

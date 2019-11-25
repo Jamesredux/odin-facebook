@@ -2,15 +2,19 @@
 
 
 <div id="like_button">
-	<% if current_user.likes.include?(post) %>
-		<%= form_with(model: current_user.likes.find_by(likeable: post),
+	<% if post.liked_by?(current_user)  %>
+		<% id = post.find_like(current_user) %>
+		<%= form_with(model: Like.find(15),
 				html: {method: :delete}, remote: true) do |f| %>
+		<%=		f.hidden_field :post, value: post %>
 		<%= f.submit "Unlike Post", class: "btn" %>
-	<% end %>
-	
+		<% end %>
+
 	<% else %>
+
+		
 		<%= form_for(post.likes.build, remote: true) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+ 		 <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.hidden_field :likeable_id, value: post.id %>
     <%= f.hidden_field :liker_id, value: current_user.id %>
@@ -21,6 +25,10 @@
   </div>
 	<% end %>
 
-<% end %>	
+	<% end %> 
+</div>
+
+
+
 
 
