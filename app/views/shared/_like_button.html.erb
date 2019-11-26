@@ -26,6 +26,13 @@
 	<% end %>
 
 	<% end %> 
+		<% if post.likers.exists? %>
+			
+			<p class="like-count"><%= pluralize(post.likers.count, "like") %>
+			
+			<%= render 'shared/likers', post: post, post_id: post.unique_id %>
+		
+		<% end %>
 </span>
 
 

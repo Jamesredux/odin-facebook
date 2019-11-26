@@ -1,0 +1,16 @@
+<p>
+
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<%= post_id %>" aria-expanded="false" aria-controls="collapseExample">
+    Likers
+  </button>
+</p>
+<div class="collapse" id="<%= post_id %>">
+  <div class="card card-body">
+  	<ul>
+    <% post.likers.each do |liker| %>
+    	
+    	<li><%= link_to liker.name, liker %></li>
+    <% end %>
+    </ul>	
+  </div>
+</div>
