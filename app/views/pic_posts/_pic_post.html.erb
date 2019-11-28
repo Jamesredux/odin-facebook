@@ -1,5 +1,5 @@
 
-
+<div class="col-md-12 post_style">
 <li id="pic_post-<%= pic_post.id %>">
 	<%= link_to gravatar_for(pic_post.user, size: 50), pic_post.user %>
 	<span class="user"><%= link_to pic_post.user.name, pic_post.user %></span>	
@@ -27,7 +27,11 @@
 			<%= render 'comments/comment', post: pic_post %>
 		<% end %>
 		
-		<%= render 'shared/like_button', post: pic_post %>	 
+			 
 		<%= render 'shared/comment_form', user: current_user, post: pic_post %>
+
+		<%= render 'shared/like_button', post: pic_post %>	
 	
 </li>
+
+</div>

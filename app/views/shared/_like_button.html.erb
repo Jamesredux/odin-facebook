@@ -1,7 +1,8 @@
 
-
+<div class="col-md-12 like_section">
 
 <span id="like_button_<%= post.unique_id %>">
+	<div class="col-md-4">
 	<% if post.liked_by?(current_user)  %>
 		<% @like = post.find_like(current_user) %>
 		<%= form_with(model: @like,
@@ -25,16 +26,24 @@
   
 	<% end %>
 
-	<% end %> 
+	<% end %>
+	</div>
+
+	<div class="col-md-4">
+
 		<% if post.likers.exists? %>
 			
-			<p class="like-count"><%= pluralize(post.likers.count, "like") %>
+			<p class="like-count"><%= pluralize(post.likers.count, "like") %></p>
+
+	</div>					
 			
+	<div class="col-md-4">		
 			<%= render 'shared/likers', post: post, post_id: post.unique_id %>
-		
+	<div class="col-md-4">	
 		<% end %>
 </span>
 
+</div>
 
 
 
