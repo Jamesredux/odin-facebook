@@ -9,6 +9,7 @@
 	<h2>Please log in to see features</h2>
 	<%= link_to "Create Account", new_user_registration_path, class: "btn btn-lg btn-primary" %>
   <p><%= link_to "Sign in", new_user_session_path %></p>
+  <p><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></p>
   <% end %>
 </div>
 
@@ -27,19 +28,9 @@
     </aside>
   </div>
 
-  <div class="row">
-    <div class="col-md-4">
-        <section class="post_form">
-        <%= render 'shared/post_form' %>
-      </section>
-    </div>
 
-    <div class="col-md-4">
-        <section class="post_form">
-        <%= render 'shared/pic_post_form' %>
-      </section>
-    </div>
-  </div>
+  <%= render 'shared/new_post' %>
+
 
 
 	<div class="col-md-8">

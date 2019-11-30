@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'comment/show'
   get 'comment/destroy'
   resources :pic_posts
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
   #get 'users/new' not sure why this is here or if it is neeeded??
   root 'static_pages#home'
 
