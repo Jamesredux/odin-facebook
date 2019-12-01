@@ -82,4 +82,3 @@ $ heroku run rails db:seed
 
 
 
-shared/user_info _user partial and user show page all repeat the same info 

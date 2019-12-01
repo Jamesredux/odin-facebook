@@ -1,11 +1,12 @@
-	
+<div class="timeline col-md-8">
 
 		<% if @current_user.feed.any? %>
 			
-			<ol class="timeline">
+			<ol class="timeline-feed">
 			<%= render @feed %>
 			</ol>
 
 			<%= paginate @feed, params: { controller: :static_pages, action: :home } %>
 		<% end %>
 	
+</div>	
