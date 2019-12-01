@@ -56,14 +56,6 @@ ActiveRecord::Schema.define(version: 2019_11_28_104938) do
     t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
-  create_table "img_posts", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id", "created_at"], name: "index_img_posts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_img_posts_on_user_id"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.bigint "liker_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -127,7 +119,6 @@ ActiveRecord::Schema.define(version: 2019_11_28_104938) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
-  add_foreign_key "img_posts", "users"
   add_foreign_key "pic_posts", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "requests", "users"
