@@ -19,4 +19,12 @@ class StaticPagesController < ApplicationController
   def contact
   	
   end
+
+  def privacy_policy
+    
+  end
+
+  def tos
+    
+  end
 end
