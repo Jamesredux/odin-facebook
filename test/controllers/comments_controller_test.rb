@@ -8,10 +8,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
   end
 
-  test "should get create" do
-    get comments_create_url, params: { comment: { author_id: @user.id } }
-    assert_response :success
-  end
+
 
   test "should get show" do
     get comments_show_url
