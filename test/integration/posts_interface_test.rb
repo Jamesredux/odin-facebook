@@ -14,7 +14,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
      assert_select 'input[type=file]'
      #invalid submission
      assert_no_difference 'Post.count' do 
-     	post posts_path, params: { post: { content: "" } }
+    	post posts_path, params: { post: { content: "" } }
      end
      assert_select 'div#error_explanation'
      #valid submission	
@@ -43,7 +43,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
    test "home page should have feed" do 
     log_in_as(@user)
     get  root_path
-    @user.feed.page(1).per(10) do |post|
+    Kaminari.paginate_array(@user.feed).page(1).per(10) do |post|
         assert_match CGI.escapeHTML(post.content), response.body 
     end    
    end 

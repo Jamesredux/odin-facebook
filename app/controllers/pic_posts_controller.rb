@@ -17,7 +17,12 @@ class PicPostsController < ApplicationController
 			flash[:success] = "Image Post created"
 			redirect_to root_url
 		else
-			@feed = current_user.feed.page(params[:page]).per(15)
+			if current_user.feed
+
+        @feed = current_user.feed
+        @feed = Kaminari.paginate_array(@feed).page(params[:page]).per(15)
+			end		
+			
 			render 'static_pages/home'
 		end		
 	end

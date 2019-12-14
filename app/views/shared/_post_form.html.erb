@@ -1,6 +1,8 @@
 
 <%= form_with(model: @post, local: true) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+  <% if @post %>
+    <%= render 'shared/error_messages', object: f.object %>
+  <% end %>  
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new post..." %>
   </div>
