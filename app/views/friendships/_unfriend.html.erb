@@ -1,5 +1,5 @@
 <%= form_for current_user.friendships.find_by(friend: friend.id), method: :delete do |f| %>
 				<%= f.hidden_field :friend, :value => friend.id %>
 			
-				<%= f.submit "Unfrind", data: { confirm: "Are you sure?" }, class: "btn btn-group btn-primary btn-sm" %>
+				<%= f.submit "Unfriend", data: { confirm: "Are you sure?" }, class: "btn btn-group btn-primary btn-sm" %>
 		<% end %>	

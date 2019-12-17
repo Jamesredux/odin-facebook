@@ -1,14 +1,15 @@
 
 	<div id="friend_request_<%= friend.id %>">
+
 		<% if current_user.pending_friends.include?(friend) %>
 			 <%= form_with(model: current_user.requests.find_by(pending_friend: friend), 
 					 html: { method: :delete }, remote: true) do |f| %> 
-					 <%= f.submit "Cancel Request", class: "btn" %> 
+					 <%= f.submit "Cancel Request", class: "" %> 
  					<% end %>   
 			<% else %>
 				<%= form_with(model: current_user.requests.build, remote: true) do |f| %>
 			<div><%= hidden_field_tag :pending_friend, friend.id %></div>
-			<%= f.submit "Send Friend Request", class: "btn btn-primary" %>
+			<%= f.submit "Send Friend Request", class: "" %>
 			<% end %>	
 		<% end %>
 		</div>

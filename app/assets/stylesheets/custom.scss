@@ -9,6 +9,7 @@ $gray-medium-light: #eaeaea;
 
 body {
 	padding-top: 60px;
+	background-color: #f7f7f7;
 }
 
 section {
@@ -79,6 +80,7 @@ footer {
 	padding-top: 5px;
 	border-top: 1px solid #eaeaea;
 	color: #777;
+	
 }
 
 footer a {
@@ -99,6 +101,10 @@ footer ul {
 		float: left;
 		margin-left: 15px;
 	}
+}
+
+.page_content {
+	padding-bottom: 45px;
 }
 
 
@@ -354,7 +360,7 @@ span.image {
 }
 
 .post_style {
-	background-color: #a2ddfa;
+	background-color: #ffffff;  
 	margin-top: 5px;
 	border: 2px groove;
 	
@@ -362,7 +368,7 @@ span.image {
 }
 
 .post_comments {
-	background-color: #bce4f7;
+	background-color: #ffffff; 
 	font-size: 0.9em;
 	margin-bottom: 5px;
 }

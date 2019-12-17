@@ -1,23 +1,28 @@
 
 
-<li>
 
+<div class="container">
+<div class="row">
+	<li>
+
+	<div class="col-md-3">
 		 <%= render 'shared/user_info', user: user, size: 50 %>
 
 		<% if current_user.admin? && !current_user?(user) %>
 			| <%= link_to "delete", user, method: :delete,
 																data: { confirm: "Are you sure?" } %>
 		<% end %>		
-		<div>
+	</div>		
+
+	<div class="col-md-3">	
 		<% if current_user.friends.include?(user) %>
 
-			<%= "Friend - link to unfriend" %>
-		</div>	
-		
-
+			<%= "Friend" %>	
 		<% elsif !current_user?(user) %>	
-		
 			<%= render 'shared/friend_request', friend: user %>
-		<% end %>			
-		
+		<% end %>	
+	</div>					
 </li>
+</div>
+</div>
+

@@ -14,12 +14,12 @@
       <%= render 'layouts/header' %> 
         
     <div class="container"> 
-      
+      <div class="page_content">
         <%= render 'shared/notice' %>
    
         <%= yield %>
        <%= debug(params) if Rails.env.development? %>  
-
+      </div> 
        <%= render 'layouts/footer' %>
     </div>    
   </body>
