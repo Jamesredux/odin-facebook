@@ -56,6 +56,7 @@ p {
 	line-height: 1.7em;
 }
 
+
 /* header */
 
 #logo {
@@ -72,6 +73,11 @@ p {
 	text-decoration: none;
 	}
 }
+
+.navbar {
+	background-color: #3B5998; 
+}
+
 
 /* footer  */
 
@@ -135,6 +141,7 @@ $gray-medium-light: #eaeaea;
 aside {
 	section.user_info {
 		margin-top: 20px;
+
 	}
 	section {
 		padding: 10px 0;
@@ -156,6 +163,12 @@ aside {
 			margin-top: 0px;
 		}
 	}
+}
+
+
+
+.user_info {
+	margin-bottom: 10px;
 }
 
 .gravatar {
@@ -245,6 +258,13 @@ p.alert {
   }
 }
 
+.requests_sent {
+	padding: 3px;
+}
+
+.friend_button {
+	padding-top: 30px;
+}
 
 
 /*  below extends default flash styling to devises inbuilt notices      */
@@ -361,10 +381,11 @@ span.image {
 
 .post_style {
 	background-color: #ffffff;  
-	margin-top: 5px;
+	margin-top: 10px;
 	border: 2px groove;
-	
+	border-radius: 10px;
 	padding-bottom: 5px;
+	padding: 5px;
 }
 
 .post_comments {
@@ -376,6 +397,8 @@ span.image {
 .new-post-wrapper {
 	border: 4px groove;
 	padding-bottom: 5px;
+	border-radius: 10px;
+
 }
 
 .timeline {

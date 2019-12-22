@@ -5,16 +5,12 @@
 <div class="row">
 	<li>
 
-	<div class="col-md-3">
+	
 		 <%= render 'shared/user_info', user: user, size: 50 %>
 
-		<% if current_user.admin? && !current_user?(user) %>
-			| <%= link_to "delete", user, method: :delete,
-																data: { confirm: "Are you sure?" } %>
-		<% end %>		
-	</div>		
+		
 
-	<div class="col-md-3">	
+	<div class="col-md-2">	
 		<% if current_user.friends.include?(user) %>
 
 			<%= "Friend" %>	

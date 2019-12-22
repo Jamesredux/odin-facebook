@@ -2,43 +2,38 @@
 
 <div class="container">
 
-	<% unless user_signed_in? %>
-  <div class="center jumbotron">
-  <h1>Odin-Facebook by Jamesredux</h1>
-	<h2>Please log in to see features</h2>
-	<%= link_to "Create Account", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-  <p><%= link_to "Sign in", new_user_session_path %></p>
-  <p><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></p>
-  <% end %>
-</div>
+
+
 
 <% if user_signed_in? %>		
  
   <div class="row">
-    <aside class="col-md-4">
+    
       <section class="user_info">
-        <h1>
+        
         <%= render 'shared/user_info', user: current_user, size: 100 %>
-      </h1>
-        <span><%= link_to "view my profile", current_user %></span>
-        <span><%= pluralize(current_user.posts.count, "post") %></span>
+      
+        
       </section>
+      
+       
 
-    </aside>
+    
   </div>
 
 
-  <%= render 'shared/new_post' %>
+    <%= render 'shared/new_post' %>
 
 
 
-<%= render 'shared/timeline' %>
+    <%= render 'shared/timeline' %>
 	
+   <% else %> 
 
-
-
+   <%= render 'signed_out_home' %>
+ 
 		
-<% end %>			
+  <% end %>			
 
 
 </div>

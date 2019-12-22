@@ -3,25 +3,30 @@
 
 <h1>Pending Sent Requests</h1>
 
-<ul>
+<ul style="list-style-type: none">
 	<% @outgoing.each do |request| %>
+	<div class="container requests_sent">
+		<div class="row">
 	
 	<li>
 		<% pending_friend = User.find(request.pending_friend_id) %>
-	
+	<aside class="col-md-2">
 		<%= link_to pending_friend.name, pending_friend %>
-	| 	
+			
+		</aside>
+	<aside class="col-md-2">
 		<%= form_with(model: current_user.requests.find_by(pending_friend: pending_friend), 
 					 html: { method: :delete }, local: true) do |f| %> 
-					 <%= f.submit "Cancel Request", class: "btn" %> 
+					 <%= f.submit "Cancel Request", class: "btn  btn-primary btn-sm" %> 
  		<% end %>   
-			
+	</aside>		
 
 	</li>
-
+</div>
+</div>
 	<% end %>
 
 </ul>
 
-</div>
-</div>
+
+
