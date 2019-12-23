@@ -1,32 +1,44 @@
 
-
+<div class="container">
 <div class="row">
   <div class="col-md-12">
 <h1> Friend Requests Received</h1>
-<%= @incoming_count %>
-<ul>
+
+<ul style="list-style-type: none">
 	<% @incoming.each do |request| %>
 	<li>
-		<% sender = User.find(request.user_id) %>
-		<%= link_to sender.name, sender %>
-		|
-		<%= form_for request, method: :put do |f| %>
-				<%= f.hidden_field :friend, :value => sender.id %>
+		<div class="container">
+			<div class="row request_received">
+				<div class="col-md-2">
+					<% sender = User.find(request.user_id) %>
+					<%= link_to sender.name, sender %>
+				</div>
+
+				<div class="col-md-2">
+					<%= form_for request, method: :put do |f| %>
+					<%= f.hidden_field :friend, :value => sender.id %>
 			
-				<%= f.submit "Accept Friend Request", class: "btn btn-group btn-primary btn-sm" %>
-				<% end %>
-		|
-		<%= form_for request, method: :delete do |f| %>
+					<%= f.submit "Accept Friend Request", class: "btn btn-group btn-primary btn-sm" %>
+					<% end %>
+				</div>
+
+				<div class="col-md-2">
+					<%= form_for request, method: :delete do |f| %>
 				<%= f.hidden_field :sender, :value => sender.id %>
 			
 				<%= f.submit "Decline Friend Request", class: "btn btn-group btn-primary btn-sm" %>
-				<% end %>		
+				<% end %>
+				</div>
+			</div>
+		</div>
+		
 
 	</li>
 
 	<% end %>
 </ul>
 
+</div>
 <div class="row">
 	 <%= link_to "Friend Requests Sent", sent_requests_path %>
 </div>
