@@ -21,87 +21,96 @@
   </div>
 
   <div class="readme_james">
-  	<h2>Ruby on Rails final project as part of the Odin Project</h2>
-
-  	<p>Explanation of all the stuff</p>
-  	<a href="https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project">Final Project</a>
+  	<h2>Ruby on Rails <a href="https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project">Final Project</a> as part of the Odin Project</h2>
 
 
-
-
-  	<p>
-  	Project: Building Facebook
-
-
-
-### Assignment
-
-Build Facebook!  You'll build a large portion of the core Facebook user functionality in this project.  We won't be worrying about the Javascript-heavy front end stuff but you won't need it to get a nice user experience.
-
-You should write at least a basic set of integration tests which let you know if each page is loading properly and unit tests to make sure your associations have been properly set up (e.g. testing that `User.first.posts` works properly).  Run them continuously in the background with [Guard](https://github.com/guard/guard) (See the [Ruby on Rails Tutorial Chapter 3.7.3](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/static_pages#sec-guard)).
+  	
 
 
 
 
-<p>1. Use Postgresql for your database from the beginning (not sqlite3), that way your deployment to Heroku will go much more smoothly:
+<p>
+Assignment: Build Facebook!  You'll build a large portion of the core Facebook user functionality in this project.  We won't be worrying about the Javascript-heavy front end stuff but you won't need it to get a nice user experience.
+
+You should write at least a basic set of integration tests which let you know if each page is loading properly and unit tests to make sure your associations have been properly set up (e.g. testing that `User.first.posts` works properly).</p>
+
+
+<h2>The criteria set by the project were...</h2>
+
+
+
+<p><b>1. Use Postgresql for your database from the beginning (not sqlite3), that way your deployment to Heroku will go much more smoothly:</b>
 </p>
 <p>Done this, also created the app in Rails 6 to give me experience of working with that release.</p>
-<p>2. Users must sign in to see anything except the sign in page.</p>
-<p>Here we are!</p>
-<p>3. User sign-in should use the Devise gem. </p>
-<p>Done this, added some further authentifications - created some difficulties with facebook login below</p>
-<p>4. Users can send Friend Requests to other Users. </p>
-<%= image_tag "friendreq.gif", class: "img-responsive" %>
-<p>5. A User must accept the Friend Request to become friends.</p>
-<%= image_tag "acceptreq.gif", class: "img-responsive" %>
+<p><b>2. Users must sign in to see anything except the sign in page.</b></p>
+<p>Here we are! Anyone can create an account above but email confirmation is active.</p>
+<p><b>3. User sign-in should use the Devise gem.</b></p>
+<p>Used the devise gem, added some further authentifications - created some difficulties with facebook login below</p>
+<p><b>4. Users can send Friend Requests to other Users.</b></p>
+<p><%= image_tag "friendreq.gif", class: "img-responsive" %></p>
+<p><b>5. A User must accept the Friend Request to become friends.</b></p>
+<p><%= image_tag "acceptreq.gif", class: "img-responsive" %></p>
 <p>Users can also decline requests</p>
-<%= image_tag "declinereq.gif", class: "img-responsive" %>
 
-<p>6. The Friend Request shows up in the notifications section of a User's navbar.</p>
-<%= image_tag "requestcount.png", class: "img-responsive" %>
-<p>7. Users can create Posts (text only to start). 8. Users can Like Posts. 9. Users can Comment on Posts. 10. Posts should always display with the post content, author, comments and likes. </p>
-<%= image_tag "completepost.png", class: "img-responsive" %>
-<p>This was completed, like/unlike button done with ajax.
-completed show post with comment and comment box and gif of like unlike</p>
+<p><b>6. The Friend Request shows up in the notifications section of a User's navbar.</b></p>
+<p><%= image_tag "requestcount.png", class: "img-responsive" %></p>
+<p><b>7. Users can create Posts (text only to start). 8. Users can Like Posts. 9. Users can Comment on Posts. 10. Posts should always display with the post content, author, comments and likes.</b> </p>
 
-<%= image_tag "like.gif", class: "img-responsive" %>
+<p><%= image_tag "completepost.png", class: "img-responsive" %></p>
+<p>This was completed, like/unlike button done with ajax. List of likers added with links to their accounts</p>
 
+<p><%= image_tag "like.gif", class: "img-responsive" %></p>
 
 
-<p>11. Treat the Posts Index page like the real Facebook's "Timeline" feature -- show all the recent posts from the current user and users she is friends with.</p>
-<p>12. Users can create a Profile with a Photo (just start by using the Gravatar image like you did in the Rails Tutorial).</p>
-<p>13. The User Show page contains their Profile information, photo, and Posts.
-14. The Users Index page lists all users and buttons for sending Friend Requests to those who are not already friends or who don't already have a pending request.</p>
-<p> screen shot here </p>
-<p>15. Sign in should use Omniauth to allow a user to sign in with their real Facebook account.</p>
-<p> This  was  pretty tricky but I think I have  got it working - (show screen shot) - facebook has changed how they allow this</p>
-<p>16. Set up a mailer to send a welcome email when a new user signs up.</p>
+
+<p><b>11. Treat the Posts Index page like the real Facebook's "Timeline" feature -- show all the recent posts from the current user and users she is friends with.</b></p>
+<p>Done, mixture of users posts and all his/her friends posts mixed together. Most recent at the top.</p>
+<p><b>12. Users can create a Profile with a Photo (just start by using the Gravatar image like you did in the Rails Tutorial).</b></p>
+<p>Users can use Gravatar or upload their own pictures.</p>
+<p><b>13. The User Show page contains their Profile information, photo, and Posts.
+14. The Users Index page lists all users and buttons for sending Friend Requests to those who are not already friends or who don't already have a pending request.</b></p>
+<p> <%= image_tag "userslist.png", class: "img-responsive" %> </p>
+<p><b>15. Sign in should use Omniauth to allow a user to sign in with their real Facebook account.</b></p>
+<p> This  was  pretty tricky but I think I have  got it working - facebook has changed some of the settings regarding this.</p>
+<p> <%= image_tag "facebooklogin.png", class: "img-responsive" %> </p>
+<p><b>16. Set up a mailer to send a welcome email when a new user signs up.</b></p>
 <p> Set up mailer and integrated Devise so user has to confirm email, and confirm change of password by email</p>
 
-<p>17. Deploy your App to Heroku.</p>
+<p><b>17. Deploy your App to Heroku.</b></p>
 <p>Here we are!</p>
-<p>18. Set up the SendGrid add-on and start sending real emails. It's free for low usage tiers.</p>
-<p>Done</p>
+<p><b>18. Set up the SendGrid add-on and start sending real emails. It's free for low usage tiers.</b></p>
+<p>Done - Real emails are sent in production.</p>
 
 <h3> Extra Credit</h3>
 
-<p>1. Make posts also allow images (either just via a URL or, more complicated, by uploading one).</p>
-<p>Users can do this.</p>
-<p>2. Use the Active Storage to allow users to upload a photo to their profile.</p>
-<p>3. Make your post able to be either a text OR a photo by using a polymorphic association (so users can still like or comment on it while being none-the-wiser).</p>
-<p>I did this by making posts and pictures separate models so that likes and comments would have polymorphic associations with them which I think overcomplicated it a bit but it works ok. </p>
-<p>4. Style it up nicely! We'll dive into HTML/CSS in the next course.</p>
+<p><b>1. Make posts also allow images (either just via a URL or, more complicated, by uploading one). 2. Use the Active Storage to allow users to upload a photo to their profile.</b></p>
+<p>Users can do this. Upload photos with their post or for their profile picture. There are size limits, it uses Active Storage</p>
+
+<p><b>3. Make your post able to be either a text OR a photo by using a polymorphic association (so users can still like or comment on it while being none-the-wiser).</b></p>
+<p>I did this by making posts and pictures separate models so that likes and comments would have polymorphic associations with them. I think I made this  more complicated then it needed to be. </p>
+<p><b>4. Style it up nicely! We'll dive into HTML/CSS in the next course.</b></p>
+<p>I styled it up a bit</p>
+
+<p><b>Some of the gems used, see gemfile for full details</b></p>
+
+<ul>
 
 
-<p>Getting Started
-
-1. Think through the data architecture required to make this work.  There are a lot of models and a lot of associations, so take the time to plan out your approach.
-2. Build the new postgresql rails app `$ rails new odin-facebook --database=postgresql`, initialize the Git repo, and update the README to link back to this page.
-3. Work your way down the list above!  Each step will involve a new challenge but you've got the tools.
-4. You can populate data like users and posts using the [Faker](https://github.com/stympy/faker) gem, which is basically just a library of sample names and emails.  It may just be easier, though, for you to write your own seeds in the `db/seeds.rb` file, which gets run if you type `$ rake db:seed`.</p>
+<li>gem 'omniauth-facebook' - For facebook login</li>
+<li>gem 'bcrypt', '3.1.12' - For hashing passwords</li>
+<li>gem 'faker', '2.1.2' - to create dummy users and posts</li>
+<li>gem 'kaminari' - to paginate records</li>
+<li>gem 'aws-sdk-s3', '1.46.0' - for Amazon web storage</li>
+<li>gem 'image_processing', '1.9.3' - for processing and manipulating image uploads</li>
+<li>gem 'mini_magick',       '4.9.5' - as above transforms images</li>
+<li>gem 'active_storage_validations', '0.8.2'- for validating active storage uploads</li>
+<li>gem 'figaro', '~> 1.0.0' - for storing api keys securely</li>
+<li>gem 'letter_opener' - for dealings with mailer in development</li>
+<li>gem 'guard' - for testing </li>
+</ul>
 
 </div>
 
-</p>
+
 
   </div>

@@ -42,28 +42,7 @@ added lockable to lock account after 10 unsucessful sign in attempts
    rails db:migrate:reset deletes database
 
 
-    rake routes | grep sessions  searches routes just for session routes
-
-    should I put current user method in application helper or where
-   
-
-   edit_user_password is for an admin to change a password????
-
-   make an option show show profile can be hidden users choice, maybe only friends can see?
-
-
-   create friendships with user.friendships.create or Friendship.create
-   can list friends with user.friend_ids
-
-   have 2 error message partials one in devise/shared/_error_messages and 
-   one in shared/error_messages turn this into one
-   
-
-   What needs to be indexed?
-A good rule of thumb is to create database indexes for everything that is referenced in the WHERE, HAVING and ORDER BY parts of your SQL queries.
-
-
-the ajax button seems to work but only on the user show page
+   rake routes | grep sessions  searches routes just for session routes
 
 
 
