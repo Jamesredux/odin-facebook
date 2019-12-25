@@ -12,7 +12,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   	get user_path(@user)
   	assert_template 'users/show'
   	assert_select 'title', full_title(@user.name)
-  	assert_select 'h1', text: @user.name
+  	assert_select 'a', text: @user.name
   	assert_select 'nav.pagination'
 
   	#only check first 10 as other drop onto next page because

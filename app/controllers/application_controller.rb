@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
+
 	
  		before_action :request_count
 
 
 
-
+ 		
 
   	
   	def request_count

@@ -33,10 +33,9 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
      first_post = @user.posts.page(1).first
      assert_difference 'Post.count', -1 do 
      	delete post_path(first_post)
+
      end
-     # Visit different user, no delete links	
-     get user_path(users(:gordon))
-     assert_select 'a', text: 'delete', count: 0
+
      
    end
 
