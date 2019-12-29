@@ -8,7 +8,7 @@
 # Create a main sample user
 
 User.create!(name: "James Redux",
-							email: "jamesredux@example.com",
+							email: "jamesredux@gmail.com",
 							password: "foobar",
 							password_confirmation: "foobar",
 							admin: true,
